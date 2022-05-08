@@ -1,0 +1,10 @@
+.watch-later-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-later-wrapper .videos-container {
+  width: calc(100% - 40rem);
+  margin: 1rem;
+}

@@ -1,0 +1,10 @@
+.playlists-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playlists-wrapper .videos-container {
+  width: calc(100% - 40rem);
+  margin: 1rem;
+}

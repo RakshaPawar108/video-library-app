@@ -1,5 +1,9 @@
 import "./History.css";
 
 export const History = () => {
-  return <div>This is History Page</div>;
+  return (
+    <div className="history-wrapper">
+      <div className="videos-container">This is History Page</div>
+    </div>
+  );
 };
