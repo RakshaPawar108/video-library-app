@@ -26,7 +26,7 @@ const SideNav = () => {
           </li>
           <li className="sidenav-item">
             <NavLink to="/watch-later">
-              <i className="fas fa-bookmark sidenav-icon"></i>
+              <i className="fas fa-clock sidenav-icon"></i>
               Watch Later
             </NavLink>
           </li>
