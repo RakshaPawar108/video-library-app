@@ -1,9 +1,21 @@
+import { VideoCard, SideNav } from "../../components";
 import "./Home.css";
 
 export const Home = () => {
   return (
     <div className="home-wrapper">
-      <div className="videos-container">This is Explore Page</div>
+      <SideNav />
+      <div className="videos-container">
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+      </div>
     </div>
   );
 };

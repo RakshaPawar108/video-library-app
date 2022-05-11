@@ -4,7 +4,7 @@ import "./SideNav.css";
 const SideNav = () => {
   return (
     <aside className="sidenav-aside">
-      <nav>
+      <nav className="sidenav-navbar">
         <ul className="sidenav-items">
           <li className="sidenav-item">
             <NavLink to="/">
