@@ -1,0 +1,17 @@
+.watch-later-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.watch-later-wrapper .videos-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem;
+}

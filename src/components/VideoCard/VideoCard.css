@@ -1,0 +1,84 @@
+.video-card {
+  background-color: var(--default-color);
+  min-width: 25rem;
+  max-width: 35rem;
+  min-height: 25rem;
+  cursor: pointer;
+}
+
+.card-thumbnail {
+  height: 60%;
+}
+
+.card-thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.video-time {
+  color: var(--secondary-color);
+  background-color: var(--default-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.video-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.video-title {
+  color: var(--pastel-green);
+  font-size: 2rem;
+}
+
+.video-channel {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+}
+
+.video-data {
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+.action-items-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 0.5rem;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.button {
+  background-color: var(--pastel-green);
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+.like-icon,
+.wl-icon,
+.playlist-icon {
+  color: var(--default-color);
+  font-size: 2rem;
+}
