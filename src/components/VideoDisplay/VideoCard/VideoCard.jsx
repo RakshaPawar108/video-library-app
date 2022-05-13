@@ -1,22 +1,31 @@
 import "./VideoCard.css";
 
-export const VideoCard = () => {
+export const VideoCard = ({
+  _id,
+  title,
+  videoThumbnail,
+  channelName,
+  channelImg,
+  numLikes,
+  numViews,
+  videoTime,
+}) => {
   return (
     <div className="card video-card">
       <div className="image-container card-thumbnail">
-        <img src="https://picsum.photos/300" alt="" />
-        <span className="video-time">1:00</span>
+        <img src={videoThumbnail} alt="" />
+        <span className="video-time">{videoTime}</span>
       </div>
       <div className="content-container video-content">
         <figure className="avatar avatar-sm">
-          <img src="https://picsum.photos/300" alt="" className="avatar-img" />
+          <img src={channelImg} alt="" className="avatar-img" />
         </figure>
         <div className="video-details">
-          <h2 className="video-title">Video Title</h2>
-          <h4 className="video-channel">Channel Name</h4>
+          <h2 className="video-title">{title}</h2>
+          <h4 className="video-channel">{channelName}</h4>
           <div className="video-data">
-            <span>1M Views |</span>
-            <span> 375k Likes</span>
+            <span>{numViews} Views |</span>
+            <span> {numLikes} Likes</span>
           </div>
         </div>
       </div>
