@@ -74,20 +74,6 @@ export const videos = [
     categoryName: "Food Art",
   },
   {
-    _id: "-77-G7E0NvQ",
-    title: "The Saturn!",
-    description:
-      " This accurate version of the Saturn is a gluten-free passion fruit cheesecake in disguise. It is composed with a marbling of cheesecake mousse and passion fruit jelly, a vanilla exotic compote in the center, a crunchy gluten-free recomposed streusel, and 2 thin shells of crunchy white chocolate.",
-    videoThumbnail: "https://img.youtube.com/vi/-77-G7E0NvQ/maxresdefault.jpg",
-    channelName: "Amaury Guichon",
-    channelImg:
-      "https://yt3.ggpht.com/ytc/AKedOLT1jOJ-J328B56V0XNneTR02M1Qg7FlSSZomtCzNg=s48-c-k-c0x00ffffff-no-rj",
-    numViews: "481k",
-    numLikes: "7.2k",
-    videoTime: "3:24",
-    categoryName: "Food Art",
-  },
-  {
     _id: "m0WfCE0aTEU",
     title: "Art In FRUIT CARVING AND CUTTING TRICKS!",
     description: "Fruit Carving Art",
@@ -101,17 +87,17 @@ export const videos = [
     categoryName: "Food Art",
   },
   {
-    _id: "oEnHeO5K6-Q",
-    title: "Simple Chocolate Techniques You Need To Know",
+    _id: "-77-G7E0NvQ",
+    title: "The Saturn!",
     description:
-      "You don’t need to be a professional to make stunning chocolate garnishes in your own kitchen – you just need the help of a few of Kirsten Tibballs chocolate hacks! ",
-    videoThumbnail: "https://img.youtube.com/vi/oEnHeO5K6-Q/maxresdefault.jpg",
-    channelName: "Kirsten Tibballs",
+      " This accurate version of the Saturn is a gluten-free passion fruit cheesecake in disguise. It is composed with a marbling of cheesecake mousse and passion fruit jelly, a vanilla exotic compote in the center, a crunchy gluten-free recomposed streusel, and 2 thin shells of crunchy white chocolate.",
+    videoThumbnail: "https://img.youtube.com/vi/-77-G7E0NvQ/maxresdefault.jpg",
+    channelName: "Amaury Guichon",
     channelImg:
-      "https://yt3.ggpht.com/ytc/AKedOLQvGQTPFmGqzvVXSPrgPXWN-oIX1deSwu7DbjqPzw=s48-c-k-c0x00ffffff-no-rj",
-    numViews: "1.09M",
-    numLikes: "21k",
-    videoTime: "25:34",
+      "https://yt3.ggpht.com/ytc/AKedOLT1jOJ-J328B56V0XNneTR02M1Qg7FlSSZomtCzNg=s48-c-k-c0x00ffffff-no-rj",
+    numViews: "481k",
+    numLikes: "7.2k",
+    videoTime: "3:24",
     categoryName: "Food Art",
   },
   {
@@ -129,32 +115,18 @@ export const videos = [
     categoryName: "Indian Recipes",
   },
   {
-    _id: "8VBnaFhOEn8",
-    title: "Basic Knife Skills – Bruno Albouze",
+    _id: "oEnHeO5K6-Q",
+    title: "Simple Chocolate Techniques You Need To Know",
     description:
-      "Learn the culinary basic knife cuts such as fine brunoise, brunoise, small dice (macédoine), medium dice (Parmentier), large dice, paysanne, roll-cuts, diagonal and the tourner technique; a football-shaped seven curved sides product!",
-    videoThumbnail: "https://img.youtube.com/vi/8VBnaFhOEn8/maxresdefault.jpg",
-    channelName: "Bruno Albouze",
+      "You don’t need to be a professional to make stunning chocolate garnishes in your own kitchen – you just need the help of a few of Kirsten Tibballs chocolate hacks! ",
+    videoThumbnail: "https://img.youtube.com/vi/oEnHeO5K6-Q/maxresdefault.jpg",
+    channelName: "Kirsten Tibballs",
     channelImg:
-      "https://yt3.ggpht.com/HHv92t6kYykPkYbKnHjtatK5n770H4FvJYyv-PQQludf71aL-xPCaICUUEQlrf2-hL9nsu8DURQ=s48-c-k-c0x00ffffff-no-rj",
-    numViews: "3.2M",
-    numLikes: "49k",
-    videoTime: "4:42",
-    categoryName: "Beginner's Basics",
-  },
-  {
-    _id: "voHVFxMnMDw",
-    title: "Healthy Chicken Salad Recipe",
-    description:
-      "This chicken salad is healthy, easy to make and super delicious.  This healthy chicken salad is high in proteins, low-carb, keto-friendly and perfect salad for weight loss! If you like creamy salads, you will love this creamy chicken salad. One of the many benefits of this salad is that it goes well with sandwiches, so you can take this salad to school or work or just serve with your favorite dinner.",
-    videoThumbnail: "https://img.youtube.com/vi/voHVFxMnMDw/maxresdefault.jpg",
-    channelName: "The Cooking Foodie",
-    channelImg:
-      "https://yt3.ggpht.com/ytc/AKedOLQ68BU8BHj6In5XdGkHnMx2Px2YHRHaaqa12_o7Gw=s48-c-k-c0x00ffffff-no-rj",
-    numViews: "1.7M",
-    numLikes: "45k",
-    videoTime: "3:35",
-    categoryName: "Healthy Recipes",
+      "https://yt3.ggpht.com/ytc/AKedOLQvGQTPFmGqzvVXSPrgPXWN-oIX1deSwu7DbjqPzw=s48-c-k-c0x00ffffff-no-rj",
+    numViews: "1.09M",
+    numLikes: "21k",
+    videoTime: "25:34",
+    categoryName: "Food Art",
   },
   {
     _id: "nGL7TpuaR0w",
@@ -185,18 +157,32 @@ export const videos = [
     categoryName: "Healthy Recipes",
   },
   {
-    _id: "yRv0tk-KWuM",
-    title: "Chocolate Sea Dragon!",
+    _id: "8VBnaFhOEn8",
+    title: "Basic Knife Skills – Bruno Albouze",
     description:
-      "This chocolate sea dragon weighs 90lbs and can stretch up to 7ft long.I love this new idea for showpiece where you have 3 modular elements, creating a different feeling each time you move them.",
-    videoThumbnail: "https://img.youtube.com/vi/yRv0tk-KWuM/maxresdefault.jpg",
-    channelName: "Amaury Guichon",
+      "Learn the culinary basic knife cuts such as fine brunoise, brunoise, small dice (macédoine), medium dice (Parmentier), large dice, paysanne, roll-cuts, diagonal and the tourner technique; a football-shaped seven curved sides product!",
+    videoThumbnail: "https://img.youtube.com/vi/8VBnaFhOEn8/maxresdefault.jpg",
+    channelName: "Bruno Albouze",
     channelImg:
-      "https://yt3.ggpht.com/ytc/AKedOLT1jOJ-J328B56V0XNneTR02M1Qg7FlSSZomtCzNg=s48-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/HHv92t6kYykPkYbKnHjtatK5n770H4FvJYyv-PQQludf71aL-xPCaICUUEQlrf2-hL9nsu8DURQ=s48-c-k-c0x00ffffff-no-rj",
+    numViews: "3.2M",
+    numLikes: "49k",
+    videoTime: "4:42",
+    categoryName: "Beginner's Basics",
+  },
+  {
+    _id: "voHVFxMnMDw",
+    title: "Healthy Chicken Salad Recipe",
+    description:
+      "This chicken salad is healthy, easy to make and super delicious.  This healthy chicken salad is high in proteins, low-carb, keto-friendly and perfect salad for weight loss! If you like creamy salads, you will love this creamy chicken salad. One of the many benefits of this salad is that it goes well with sandwiches, so you can take this salad to school or work or just serve with your favorite dinner.",
+    videoThumbnail: "https://img.youtube.com/vi/voHVFxMnMDw/maxresdefault.jpg",
+    channelName: "The Cooking Foodie",
+    channelImg:
+      "https://yt3.ggpht.com/ytc/AKedOLQ68BU8BHj6In5XdGkHnMx2Px2YHRHaaqa12_o7Gw=s48-c-k-c0x00ffffff-no-rj",
     numViews: "1.7M",
-    numLikes: "50k",
-    videoTime: "3:03",
-    categoryName: "Food Art",
+    numLikes: "45k",
+    videoTime: "3:35",
+    categoryName: "Healthy Recipes",
   },
   {
     _id: "lkb5DkraJZg",
