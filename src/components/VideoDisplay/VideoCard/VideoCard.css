@@ -1,20 +1,20 @@
 .video-card {
   background-color: var(--default-color);
   min-width: 30rem;
-  max-width: 35rem;
-  min-height: 25rem;
+  max-width: 40rem;
+  height: 40rem;
   cursor: pointer;
   border-radius: 0px;
 }
 
 .card-thumbnail {
-  height: 60%;
+  height: 65%;
 }
 
 .card-thumbnail img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .video-time {
@@ -32,6 +32,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 
 .video-details {
@@ -46,6 +47,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 
 .video-channel {
@@ -53,7 +56,15 @@
   font-size: 1.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.avatar-img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
 }
 
 .video-data {

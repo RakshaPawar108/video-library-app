@@ -1,17 +1,16 @@
 .home-wrapper {
   display: flex;
   align-items: flex-start;
+  flex-direction: row;
   flex-grow: 1;
   height: 100%;
   width: 100%;
 }
 
 .home-wrapper .videos-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: row;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 2rem;
   margin: 2rem;
+  width: 100%;
 }

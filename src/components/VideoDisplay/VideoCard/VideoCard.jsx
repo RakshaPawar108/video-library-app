@@ -17,12 +17,12 @@ export const VideoCard = ({
         <span className="video-time">{videoTime}</span>
       </div>
       <div className="content-container video-content">
-        <figure className="avatar avatar-sm">
+        <figure className="avatar avatar-sm channel-img">
           <img src={channelImg} alt="" className="avatar-img" />
         </figure>
         <div className="video-details">
-          <h2 className="video-title">{title}</h2>
-          <h4 className="video-channel">{channelName}</h4>
+          <h2 className="video-title" title={title}>{title}</h2>
+          <h4 className="video-channel" title={channelName}>{channelName}</h4>
           <div className="video-data">
             <span>{numViews} Views |</span>
             <span> {numLikes} Likes</span>
