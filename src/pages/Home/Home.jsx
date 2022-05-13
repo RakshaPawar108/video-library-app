@@ -1,4 +1,4 @@
-import { VideoCard, SideNav } from "../../components";
+import { SideNav, Videos } from "../../components";
 import "./Home.css";
 
 export const Home = () => {
@@ -6,15 +6,7 @@ export const Home = () => {
     <div className="home-wrapper">
       <SideNav />
       <div className="videos-container">
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
+        <Videos />
       </div>
     </div>
   );

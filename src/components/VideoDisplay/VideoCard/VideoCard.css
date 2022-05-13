@@ -1,9 +1,10 @@
 .video-card {
   background-color: var(--default-color);
-  min-width: 25rem;
+  min-width: 30rem;
   max-width: 35rem;
   min-height: 25rem;
   cursor: pointer;
+  border-radius: 0px;
 }
 
 .card-thumbnail {
@@ -42,11 +43,17 @@
 .video-title {
   color: var(--pastel-green);
   font-size: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
 }
 
 .video-channel {
   color: var(--secondary-color);
   font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
 }
 
 .video-data {
