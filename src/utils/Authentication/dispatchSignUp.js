@@ -13,7 +13,6 @@ export const dispatchSignUp = async (user, authDispatch) => {
           token: res.data.encodedToken,
         },
       });
-      return res.status;
     }
   } catch (err) {
     console.log(err);

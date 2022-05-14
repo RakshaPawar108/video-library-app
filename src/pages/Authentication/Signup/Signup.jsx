@@ -9,9 +9,9 @@ export const Signup = () => {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
-    confirmPassword: "",
   });
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
 
@@ -22,17 +22,13 @@ export const Signup = () => {
       user.firstName &&
       user.lastName &&
       user.email &&
-      user.password &&
-      user.confirmPassword
+      password &&
+      confirmPassword
     ) {
-      if (user.password === user.confirmPassword) {
-        const status = dispatchSignUp(user, authDispatch);
-        if (status === 201) {
-          alert("Successfully Signed Up");
-          navigate("/");
-        } else {
-          alert("Error in Signing up. Please try again");
-        }
+      if (password === confirmPassword) {
+        dispatchSignUp(user, authDispatch);
+        alert("Successfully Signed Up");
+        navigate("/");
       } else {
         alert("Password and Confirm Password fields should match");
       }
@@ -89,9 +85,9 @@ export const Signup = () => {
             type="password"
             id="password"
             placeholder=" "
-            value={user.password}
+            value={password}
             onChange={(e) => {
-              setUser({ ...user, password: e.target.value });
+              setPassword(e.target.value);
             }}
           />
           <label htmlFor="password">Enter Password</label>
@@ -103,9 +99,9 @@ export const Signup = () => {
             type="password"
             id="confirmPassword"
             placeholder=" "
-            value={user.confirmPassword}
+            value={confirmPassword}
             onChange={(e) => {
-              setUser({ ...user, confirmPassword: e.target.value });
+              setConfirmPassword(e.target.value);
             }}
           />
           <label htmlFor="confirmPassword">Confirm Password</label>
