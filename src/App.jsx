@@ -1,6 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./components";
-import { History, Home, Liked, Playlists, WatchLater } from "./pages";
+import {
+  History,
+  Home,
+  Liked,
+  Login,
+  Logout,
+  Playlists,
+  Signup,
+  WatchLater,
+} from "./pages";
 
 function App() {
   return (
@@ -12,6 +21,9 @@ function App() {
         <Route path="/playlists" element={<Playlists />} />
         <Route path="/watch-later" element={<WatchLater />} />
         <Route path="/history" element={<History />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   );

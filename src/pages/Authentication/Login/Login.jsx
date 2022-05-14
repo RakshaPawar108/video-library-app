@@ -8,13 +8,13 @@ export const Login = () => {
         <h1 className="auth-title">Login</h1>
         <p className="auth-subtitle">Please enter your email and password</p>
         <div className="input-container standard auth-email">
-          <input type="email" id="email" placeholder=" " value="email" />
+          <input type="email" id="email" placeholder=" " value="" />
           <label htmlFor="email">Enter Your Email</label>
           <small>Enter Valid Email</small>
         </div>
 
         <div className="input-container standard auth-password">
-          <input type="password" id="password" placeholder=" " value="pwd" />
+          <input type="password" id="password" placeholder=" " value="" />
           <label htmlFor="password">Enter Password</label>
           <small>Enter Valid Password</small>
         </div>
