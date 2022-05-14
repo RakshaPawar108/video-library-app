@@ -11,11 +11,9 @@ export const dispatchLogin = async (user, authDispatch) => {
           token: res.data.encodedToken,
         },
       });
-      alert("Logged in successfully");
-    } else {
-      alert("Error in logging in!");
+      return res.status;
     }
   } catch (err) {
-    console.log(err);
+    alert(err);
   }
 };

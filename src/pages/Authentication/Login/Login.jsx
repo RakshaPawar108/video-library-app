@@ -1,11 +1,35 @@
 import "./../Auth.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../../../context";
+import { dispatchLogin } from "../../../utils/";
 
 export const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
-  const loginHandler = () => {};
-  const guestLoginHandler = () => {};
+  const { authDispatch } = useAuth();
+  const navigate = useNavigate();
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+
+    if (user.email !== "" && user.password !== "") {
+      const status = dispatchLogin(user, authDispatch);
+      if (status === 200) {
+        alert("Successfully Logged In");
+        navigate("/");
+      }
+    } else {
+      alert("Please fill up both the fields");
+    }
+  };
+
+  const guestLoginHandler = (e) => {
+    e.preventDefault();
+    setUser(() => ({
+      email: "adarshbalika@gmail.com",
+      password: "adarshbalika",
+    }));
+  };
   return (
     <main className="main-wrapper">
       <form className="auth-container">
