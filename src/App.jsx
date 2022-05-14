@@ -9,6 +9,7 @@ import {
   Playlists,
   Signup,
   WatchLater,
+  User,
 } from "./pages";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/user" element={<User/>} />
       </Routes>
     </div>
   );
