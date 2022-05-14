@@ -32,16 +32,17 @@ export const Login = () => {
           </p>
         </div>
 
-        <button type="submit" className="button btn-info btn-signup">
+        <button type="submit" className="button btn-info btn-login">
           Login
         </button>
-        <button type="submit" className="button btn-info btn-signup">
+        <button type="submit" className="button btn-info btn-login">
           Login with Guest Credentials
         </button>
-        <p className="auth-link">
-          Don't have an account?
+        <hr className="divider" />
+        <p className="auth-link">Don't have an account?</p>
+        <button className="button btn-info btn-signup-link">
           <Link to="/signup">Sign Up</Link>
-        </p>
+        </button>
       </form>
     </main>
   );

@@ -65,7 +65,9 @@
 }
 
 .btn-signup,
-.btn-login {
+.btn-login,
+.btn-signup-link,
+.btn-login-link {
   width: 100%;
   background-color: var(--dark-blue);
   margin: 2rem;
@@ -109,6 +111,7 @@
 
 input:not(:checked) ~ .remember-box:hover {
   color: var(--dark-blue);
+  cursor: pointer;
 }
 
 input:checked ~ .remember-box {

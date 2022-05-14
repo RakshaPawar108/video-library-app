@@ -41,10 +41,11 @@ export const Signup = () => {
         <button type="submit" className="button btn-info btn-signup">
           Sign Up
         </button>
-        <p className="auth-link">
-          Already have an existing account?
+        <hr className="divider" />
+        <p className="auth-link">Already have an existing account?</p>
+        <button className="button btn-info btn-login-link">
           <Link to="/login">Login</Link>
-        </p>
+        </button>
       </form>
     </main>
   );
