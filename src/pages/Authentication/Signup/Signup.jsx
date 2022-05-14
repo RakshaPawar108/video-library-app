@@ -9,8 +9,8 @@ export const Signup = () => {
     firstName: "",
     lastName: "",
     email: "",
+    password: "",
   });
-  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
@@ -22,13 +22,11 @@ export const Signup = () => {
       user.firstName &&
       user.lastName &&
       user.email &&
-      password &&
+      user.password &&
       confirmPassword
     ) {
-      if (password === confirmPassword) {
-        dispatchSignUp(user, authDispatch);
-        alert("Successfully Signed Up");
-        navigate("/");
+      if (user.password === confirmPassword) {
+        dispatchSignUp(user, authDispatch, navigate);
       } else {
         alert("Password and Confirm Password fields should match");
       }
@@ -85,9 +83,9 @@ export const Signup = () => {
             type="password"
             id="password"
             placeholder=" "
-            value={password}
+            value={user.password}
             onChange={(e) => {
-              setPassword(e.target.value);
+              setUser({ ...user, password: e.target.value });
             }}
           />
           <label htmlFor="password">Enter Password</label>

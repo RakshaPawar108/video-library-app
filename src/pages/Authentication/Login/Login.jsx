@@ -13,13 +13,7 @@ export const Login = () => {
     e.preventDefault();
 
     if (user.email !== "" && user.password !== "") {
-      const status = dispatchLogin(user, authDispatch);
-      if (status === 200) {
-        alert("Successfully Logged In");
-        navigate("/");
-      } else {
-        alert("Error in Logging In");
-      }
+      dispatchLogin(user, authDispatch, navigate);
     } else {
       alert("Please fill up both the fields");
     }

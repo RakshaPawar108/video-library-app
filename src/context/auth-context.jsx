@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
     if (token && user) {
-      authDispatch({ type: "FETCH_INITIAL", payload: { user, token } });
+      authDispatch({ type: "FETCH_INITIAL", payload: { user:user, token:token } });
     }
   }, []);
 

@@ -1,6 +1,6 @@
 import { signUp } from "../../services";
 
-export const dispatchSignUp = async (user, authDispatch) => {
+export const dispatchSignUp = async (user, authDispatch, navigate) => {
   try {
     const res = await signUp(user, authDispatch);
     if (res.status === 201) {
@@ -13,6 +13,8 @@ export const dispatchSignUp = async (user, authDispatch) => {
           token: res.data.encodedToken,
         },
       });
+      alert("Successfully Signed Up");
+      navigate("/");
     }
   } catch (err) {
     console.log(err);

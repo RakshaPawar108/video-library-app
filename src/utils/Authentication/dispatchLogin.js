@@ -1,6 +1,6 @@
 import { logIn } from "../../services/";
 
-export const dispatchLogin = async (user, authDispatch) => {
+export const dispatchLogin = async (user, authDispatch, navigate) => {
   try {
     const res = await logIn(user);
     if (res.status === 200) {
@@ -13,7 +13,10 @@ export const dispatchLogin = async (user, authDispatch) => {
           token: res.data.encodedToken,
         },
       });
-      return res.status;
+      alert("Successfully Logged In");
+      navigate("/");
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };
