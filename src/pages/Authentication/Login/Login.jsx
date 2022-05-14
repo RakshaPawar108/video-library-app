@@ -17,6 +17,8 @@ export const Login = () => {
       if (status === 200) {
         alert("Successfully Logged In");
         navigate("/");
+      } else {
+        alert("Error in Logging In");
       }
     } else {
       alert("Please fill up both the fields");

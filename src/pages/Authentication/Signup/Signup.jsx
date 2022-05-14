@@ -1,6 +1,8 @@
 import "./../Auth.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { dispatchSignUp } from "../../../utils";
+import { useAuth } from "../../../context";
 
 export const Signup = () => {
   const [user, setUser] = useState({
@@ -10,8 +12,34 @@ export const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+  const { authDispatch } = useAuth();
+  const navigate = useNavigate();
 
-  const signupHandler = () => {};
+  const signupHandler = (e) => {
+    e.preventDefault();
+
+    if (
+      user.firstName &&
+      user.lastName &&
+      user.email &&
+      user.password &&
+      user.confirmPassword
+    ) {
+      if (user.password === user.confirmPassword) {
+        const status = dispatchSignUp(user, authDispatch);
+        if (status === 201) {
+          alert("Successfully Signed Up");
+          navigate("/");
+        } else {
+          alert("Error in Signing up. Please try again");
+        }
+      } else {
+        alert("Password and Confirm Password fields should match");
+      }
+    } else {
+      alert("Please fill up all fields");
+    }
+  };
 
   return (
     <main className="main-wrapper">
