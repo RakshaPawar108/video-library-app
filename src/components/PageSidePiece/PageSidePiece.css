@@ -1,10 +1,11 @@
 .sidepiece-wrapper {
   height: 100%;
-  width: 50rem;
+  width: 30rem;
+  margin: 2rem;
 }
 
 .sidepiece-image-container {
-  width: 60%;
+  width: 80%;
   height: 100%;
   margin: 1rem;
 }

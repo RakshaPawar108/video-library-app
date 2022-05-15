@@ -3,3 +3,4 @@ export { SideNav } from "./SideNav/SideNav";
 export { VideoCard } from "./VideoDisplay/VideoCard/VideoCard";
 export { Videos } from "./VideoDisplay/Videos/Videos";
 export { PageSidePiece } from "./PageSidePiece/PageSidePiece";
+export { HorizontalVideoCard } from "./HorizontalVideoCard/HorizontalVideoCard";
