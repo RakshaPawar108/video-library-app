@@ -1,0 +1,32 @@
+.sidepiece-wrapper {
+  height: 100%;
+  width: 50rem;
+}
+
+.sidepiece-image-container {
+  width: 60%;
+  height: 100%;
+  margin: 1rem;
+}
+
+.sidepiece-image-container img {
+  width: 100%;
+}
+
+.sidepiece-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.sidepiece-title {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.sidepiece-sub-title {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
