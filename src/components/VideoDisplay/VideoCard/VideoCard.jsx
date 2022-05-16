@@ -1,4 +1,4 @@
-import { useAuth } from "../../../context";
+import { useAuth, useLikes } from "../../../context";
 import { likeVideo } from "../../../utils";
 import "./VideoCard.css";
 
@@ -17,9 +17,11 @@ export const VideoCard = ({
     authState: { token },
   } = useAuth();
 
+  const { likesDispatch } = useLikes();
+
   const likeHandler = (_id) => {
     const video = videos.find((video) => video.id === _id);
-    likeVideo(token, video);
+    likeVideo(token, video, likesDispatch);
   };
 
   return (
