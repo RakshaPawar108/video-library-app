@@ -65,6 +65,10 @@
   margin-right: 1rem;
 }
 
+.delete-button {
+  background-color: var(--pastel-green);
+}
+
 .delete-button:hover {
   background-color: var(--secondary-color);
   color: var(--default-color);
