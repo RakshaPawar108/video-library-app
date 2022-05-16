@@ -24,7 +24,8 @@ export const VideoCard = ({
 
   const likeHandler = (_id) => {
     if (token) {
-      const video = videos.find((video) => video.id === _id);
+      const video = videos.find((video) => video._id === _id);
+      console.log(videos);
       likeVideo(token, video, likesDispatch, setLiked);
     } else {
       navigate("/login");
