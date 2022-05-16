@@ -74,7 +74,7 @@ export const VideoCard = ({
         <div className="icon-container">
           {liked ? (
             <button
-              className="button btn-float btn-primary"
+              className="button btn-float btn-primary like-button"
               title="Unlike Video"
               onClick={() => unlikeHandler(_id)}
             >
@@ -82,7 +82,7 @@ export const VideoCard = ({
             </button>
           ) : (
             <button
-              className="button btn-float btn-primary"
+              className="button btn-float btn-primary like-button"
               title="Like Video"
               onClick={() => likeHandler(_id)}
             >
@@ -90,13 +90,13 @@ export const VideoCard = ({
             </button>
           )}
           <button
-            className="button btn-float btn-primary"
+            className="button btn-float btn-primary watchlater-button"
             title="Add to Watch Later"
           >
             <i className="far fa-clock wl-icon"></i>
           </button>
           <button
-            className="button btn-float btn-primary"
+            className="button btn-float btn-primary playlist-button"
             title="Add to Playlist"
           >
             <i className="fas fa-list playlist-icon"></i>

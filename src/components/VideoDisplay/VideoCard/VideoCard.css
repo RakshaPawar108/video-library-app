@@ -86,7 +86,9 @@
   gap: 1rem;
 }
 
-.button {
+.like-button,
+.watchlater-button,
+.playlist-button {
   background-color: var(--pastel-green);
 }
 
