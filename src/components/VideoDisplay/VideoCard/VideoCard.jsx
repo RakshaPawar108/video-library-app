@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useAuth, useLikes } from "../../../context";
-import { likeVideo } from "../../../utils";
+import { likeVideo, unlikeVideo } from "../../../utils";
+import { useNavigate } from "react-router-dom";
 import "./VideoCard.css";
 
 export const VideoCard = ({
@@ -16,12 +18,21 @@ export const VideoCard = ({
   const {
     authState: { token },
   } = useAuth();
-
+  const navigate = useNavigate();
   const { likesDispatch } = useLikes();
+  const [liked, setLiked] = useState(false);
 
   const likeHandler = (_id) => {
-    const video = videos.find((video) => video.id === _id);
-    likeVideo(token, video, likesDispatch);
+    if (token) {
+      const video = videos.find((video) => video.id === _id);
+      likeVideo(token, video, likesDispatch, setLiked);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const unlikeHandler = (_id) => {
+    unlikeVideo(_id, token, likesDispatch, setLiked);
   };
 
   return (
@@ -49,13 +60,23 @@ export const VideoCard = ({
       </div>
       <div className="action-items-container">
         <div className="icon-container">
-          <button
-            className="button btn-float btn-primary"
-            title="Like Video"
-            onClick={() => likeHandler(_id)}
-          >
-            <i className="far fa-thumbs-up like-icon"></i>
-          </button>
+          {liked ? (
+            <button
+              className="button btn-float btn-primary"
+              title="Unlike Video"
+              onClick={() => unlikeHandler(_id)}
+            >
+              <i className="fas fa-thumbs-up like-icon"></i>
+            </button>
+          ) : (
+            <button
+              className="button btn-float btn-primary"
+              title="Like Video"
+              onClick={() => likeHandler(_id)}
+            >
+              <i className="far fa-thumbs-up like-icon"></i>
+            </button>
+          )}
           <button
             className="button btn-float btn-primary"
             title="Add to Watch Later"
