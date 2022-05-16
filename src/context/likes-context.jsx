@@ -1,9 +1,16 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
+import { likesReducer } from "../reducers";
 
 const LikesContext = createContext(null);
 
 const LikesProvider = ({ children }) => {
-  return <LikesContext.Provider>{children}</LikesContext.Provider>;
+  const [likesState, likesDispatch] = useReducer(likesReducer, { likes: [] });
+
+  return (
+    <LikesContext.Provider value={{ likesState, likesDispatch }}>
+      {children}
+    </LikesContext.Provider>
+  );
 };
 
 const useLikes = () => useContext(LikesContext);
