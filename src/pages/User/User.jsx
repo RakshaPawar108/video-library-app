@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context";
+import { useAuth, useLikes } from "../../context";
 import "./User.css";
 
 export const User = () => {
   const { authDispatch } = useAuth();
+  const { likesDispatch } = useLikes();
   const logoutHandler = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     authDispatch({ type: "LOGOUT" });
+    likesDispatch({ type: "EMPTY_LIKE_PAGE" });
   };
   return (
     <div>
