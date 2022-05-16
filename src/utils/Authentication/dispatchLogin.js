@@ -1,6 +1,12 @@
 import { logIn } from "../../services/";
+import { fetchLikedVideos } from "../Likes/fetch-liked-videos";
 
-export const dispatchLogin = async (user, authDispatch, navigate) => {
+export const dispatchLogin = async (
+  user,
+  authDispatch,
+  navigate,
+  likesDispatch
+) => {
   try {
     const res = await logIn(user);
     if (res.status === 200) {
@@ -13,6 +19,7 @@ export const dispatchLogin = async (user, authDispatch, navigate) => {
           token: res.data.encodedToken,
         },
       });
+      fetchLikedVideos(likesDispatch, res.data.encodedToken);
       alert("Successfully Logged In");
       navigate("/");
     }

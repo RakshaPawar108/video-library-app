@@ -1,19 +1,20 @@
 import "./../Auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useAuth } from "../../../context";
+import { useAuth, useLikes } from "../../../context";
 import { dispatchLogin } from "../../../utils/";
 
 export const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const { authDispatch } = useAuth();
+  const { likesDispatch } = useLikes();
   const navigate = useNavigate();
 
   const loginHandler = (e) => {
     e.preventDefault();
 
     if (user.email !== "" && user.password !== "") {
-      dispatchLogin(user, authDispatch, navigate);
+      dispatchLogin(user, authDispatch, navigate, likesDispatch);
     } else {
       alert("Please fill up both the fields");
     }
