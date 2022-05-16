@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth, useLikes } from "../../../context";
 import { likeVideo, unlikeVideo } from "../../../utils";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,10 @@ export const VideoCard = ({
     authState: { token },
   } = useAuth();
   const navigate = useNavigate();
-  const { likesDispatch } = useLikes();
+  const {
+    likesState: { likes },
+    likesDispatch,
+  } = useLikes();
   const [liked, setLiked] = useState(false);
 
   const likeHandler = (_id) => {
@@ -35,6 +38,14 @@ export const VideoCard = ({
   const unlikeHandler = (_id) => {
     unlikeVideo(_id, token, likesDispatch, setLiked);
   };
+
+  const isLiked = (_id) => {
+    likes.find((video) => video._id === _id) ? setLiked(true) : setLiked(false);
+  };
+
+  useEffect(() => {
+    isLiked(_id);
+  });
 
   return (
     <div className="card video-card">
