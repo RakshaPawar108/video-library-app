@@ -1,3 +1,5 @@
+import { useAuth } from "../../../context";
+import { likeVideo } from "../../../utils";
 import "./VideoCard.css";
 
 export const VideoCard = ({
@@ -9,7 +11,17 @@ export const VideoCard = ({
   numLikes,
   numViews,
   videoTime,
+  videos,
 }) => {
+  const {
+    authState: { token },
+  } = useAuth();
+
+  const likeHandler = (_id) => {
+    const video = videos.find((video) => video.id === _id);
+    likeVideo(token, video);
+  };
+
   return (
     <div className="card video-card">
       <div className="image-container card-thumbnail">
@@ -21,8 +33,12 @@ export const VideoCard = ({
           <img src={channelImg} alt="" className="avatar-img" />
         </figure>
         <div className="video-details">
-          <h2 className="video-title" title={title}>{title}</h2>
-          <h4 className="video-channel" title={channelName}>{channelName}</h4>
+          <h2 className="video-title" title={title}>
+            {title}
+          </h2>
+          <h4 className="video-channel" title={channelName}>
+            {channelName}
+          </h4>
           <div className="video-data">
             <span>{numViews} Views |</span>
             <span> {numLikes} Likes</span>
@@ -31,7 +47,11 @@ export const VideoCard = ({
       </div>
       <div className="action-items-container">
         <div className="icon-container">
-          <button className="button btn-float btn-primary" title="Like Video">
+          <button
+            className="button btn-float btn-primary"
+            title="Like Video"
+            onClick={() => likeHandler(_id)}
+          >
             <i className="far fa-thumbs-up like-icon"></i>
           </button>
           <button
