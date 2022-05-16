@@ -1,10 +1,12 @@
 import "./HorizontalVideoCard.css";
 
 export const HorizontalVideoCard = ({
+  videoId,
   videoThumbnail,
   videoTime,
   videoTitle,
   channelName,
+  removeFromLikes,
 }) => {
   return (
     <div className="horizontal-video-card">
@@ -23,7 +25,10 @@ export const HorizontalVideoCard = ({
       </div>
 
       <div className="hc-button-container">
-        <button className="button btn-secondary delete-button">
+        <button
+          className="button btn-secondary delete-button"
+          onClick={() => removeFromLikes(videoId)}
+        >
           <i className="fas fa-trash"></i>
         </button>
       </div>

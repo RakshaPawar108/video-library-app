@@ -1,8 +1,8 @@
 import "./Liked.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HorizontalVideoCard, PageSidePiece, SideNav } from "../../components";
 import { useAuth, useLikes } from "../../context";
-import { fetchLikedVideos } from "../../utils";
+import { fetchLikedVideos, unlikeVideo } from "../../utils";
 
 export const Liked = () => {
   const {
@@ -19,6 +19,12 @@ export const Liked = () => {
       fetchLikedVideos(likesDispatch, token);
     }
   });
+  const [liked, setLiked] = useState(true);
+
+  const removeFromLikes = (_id) => {
+    unlikeVideo(_id, token, likesDispatch, setLiked);
+  };
+
   return (
     <div className="liked-wrapper">
       <SideNav />
@@ -29,10 +35,13 @@ export const Liked = () => {
             likes.map((likedVideo) => (
               <li className="list-item stacked" key={likedVideo._id}>
                 <HorizontalVideoCard
+                  videoId={likedVideo._id}
                   videoThumbnail={likedVideo.videoThumbnail}
                   videoTime={likedVideo.videoTime}
                   videoTitle={likedVideo.title}
                   channelName={likedVideo.channelName}
+                  removeFromLikes={removeFromLikes}
+                  liked={liked}
                 />
               </li>
             ))
