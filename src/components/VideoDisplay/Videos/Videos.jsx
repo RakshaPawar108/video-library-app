@@ -6,7 +6,9 @@ export const Videos = () => {
   return (
     <>
       {videos.length > 0
-        ? videos.map((video) => <VideoCard key={video._id} {...video} />)
+        ? videos.map((video) => (
+            <VideoCard key={video._id} {...video} videos={videos} />
+          ))
         : null}
     </>
   );

@@ -1,6 +1,7 @@
 .liked-wrapper {
   display: flex;
   align-items: flex-start;
+  flex-direction: row;
   flex-grow: 1;
   height: 100%;
   width: 100%;
@@ -11,7 +12,16 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
-  gap: 2rem;
-  flex-wrap: wrap;
+  width: 100%;
   margin: 2rem;
+}
+
+.list {
+  align-items: stretch;
+  width: 65%;
+}
+
+.stacked {
+  border: none;
+  margin: 1rem;
 }

@@ -1,0 +1,79 @@
+.horizontal-video-card {
+  display: flex;
+  background-color: var(--default-color);
+  min-width: fit-content;
+  width: 100%;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.horizontal-card-img-container {
+  position: relative;
+}
+
+.horizontal-card-img-container img {
+  width: 18rem;
+  height: 12rem;
+  object-fit: cover;
+  display: block;
+}
+
+.hr-video-time {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--default-color);
+  color: var(--secondary-color);
+  padding: 0.5rem;
+}
+
+.horizontal-card-content-container {
+  color: var(--pastel-green);
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+
+.hc-video-title {
+  font-size: 2rem;
+  padding: 0.5rem;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.hc-channel-name {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.hc-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.delete-button {
+  background-color: var(--pastel-green);
+}
+
+.delete-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--default-color);
+}
+
+.delete-button i {
+  font-size: 1.2rem;
+}
