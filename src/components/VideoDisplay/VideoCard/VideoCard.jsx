@@ -56,6 +56,8 @@ export const VideoCard = ({
     if (token) {
       const video = videos.find((video) => video._id === _id);
       addToWatchLater(token, video, watchLaterDispatch, setWatchLater);
+    } else {
+      navigate("/login");
     }
   };
 
@@ -71,7 +73,7 @@ export const VideoCard = ({
 
   useEffect(() => {
     isLiked(_id);
-    inWatchLater(_id)
+    inWatchLater(_id);
   });
 
   return (
