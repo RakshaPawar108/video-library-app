@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useAuth, useLikes } from "../../../context";
-import { likeVideo, unlikeVideo } from "../../../utils";
+import { useAuth, useLikes, useWatchLater } from "../../../context";
+import { addToWatchLater, likeVideo, unlikeVideo } from "../../../utils";
 import { useNavigate } from "react-router-dom";
 import "./VideoCard.css";
 
@@ -23,12 +23,16 @@ export const VideoCard = ({
     likesState: { likes },
     likesDispatch,
   } = useLikes();
+  const {
+    watchLaterState: { watchlater },
+    watchLaterDispatch,
+  } = useWatchLater();
   const [liked, setLiked] = useState(false);
+  const [watchLater, setWatchLater] = useState(false);
 
   const likeHandler = (_id) => {
     if (token) {
       const video = videos.find((video) => video._id === _id);
-      console.log(videos);
       likeVideo(token, video, likesDispatch, setLiked);
     } else {
       navigate("/login");
@@ -41,6 +45,13 @@ export const VideoCard = ({
 
   const isLiked = (_id) => {
     likes.find((video) => video._id === _id) ? setLiked(true) : setLiked(false);
+  };
+
+  const addToWatchLaterHandler = (_id) => {
+    if (token) {
+      const video = videos.find((video) => video._id === _id);
+      addToWatchLater(token, video, watchLaterDispatch, setWatchLater);
+    }
   };
 
   useEffect(() => {
@@ -89,12 +100,24 @@ export const VideoCard = ({
               <i className="far fa-thumbs-up like-icon"></i>
             </button>
           )}
-          <button
-            className="button btn-float btn-primary watchlater-button"
-            title="Add to Watch Later"
-          >
-            <i className="far fa-clock wl-icon"></i>
-          </button>
+
+          {watchLater ? (
+            <button
+              className="button btn-float btn-primary watchlater-button"
+              title="Remove from Watch Later"
+            >
+              <i className="fas fa-clock wl-icon"></i>
+            </button>
+          ) : (
+            <button
+              className="button btn-float btn-primary watchlater-button"
+              title="Add to Watch Later"
+              onClick={() => addToWatchLaterHandler(_id)}
+            >
+              <i className="far fa-clock wl-icon"></i>
+            </button>
+          )}
+
           <button
             className="button btn-float btn-primary playlist-button"
             title="Add to Playlist"
