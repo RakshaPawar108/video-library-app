@@ -1,8 +1,8 @@
 import "./WatchLater.css";
 import { HorizontalVideoCard, PageSidePiece, SideNav } from "../../components";
 import { useAuth, useWatchLater } from "../../context";
-import { removeFromWatchLater } from "../../utils";
-import { useState } from "react";
+import { fetchWatchLater, removeFromWatchLater } from "../../utils";
+import { useState, useEffect } from "react";
 
 export const WatchLater = () => {
   const {
@@ -18,6 +18,12 @@ export const WatchLater = () => {
   const removeVidFromWatchLater = (_id) => {
     removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
   };
+
+  useEffect(() => {
+    if (token) {
+      fetchWatchLater(watchLaterDispatch, token);
+    }
+  });
   return (
     <div className="watch-later-wrapper">
       <SideNav />
