@@ -63,8 +63,15 @@ export const VideoCard = ({
     removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
   };
 
+  const inWatchLater = (_id) => {
+    watchlater.find((video) => video._id === _id)
+      ? setWatchLater(true)
+      : setWatchLater(false);
+  };
+
   useEffect(() => {
     isLiked(_id);
+    inWatchLater(_id)
   });
 
   return (
