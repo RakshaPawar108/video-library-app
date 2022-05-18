@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAuth, useLikes, useWatchLater } from "../../../context";
-import { addToWatchLater, likeVideo, unlikeVideo } from "../../../utils";
+import {
+  addToWatchLater,
+  likeVideo,
+  removeFromWatchLater,
+  unlikeVideo,
+} from "../../../utils";
 import { useNavigate } from "react-router-dom";
 import "./VideoCard.css";
 
@@ -54,6 +59,10 @@ export const VideoCard = ({
     }
   };
 
+  const removeFromWatchLaterHandler = (_id) => {
+    removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
+  };
+
   useEffect(() => {
     isLiked(_id);
   });
@@ -105,6 +114,7 @@ export const VideoCard = ({
             <button
               className="button btn-float btn-primary watchlater-button"
               title="Remove from Watch Later"
+              onClick={() => removeFromWatchLaterHandler(_id)}
             >
               <i className="fas fa-clock wl-icon"></i>
             </button>
