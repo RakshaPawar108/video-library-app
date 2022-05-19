@@ -6,7 +6,7 @@ export const HorizontalVideoCard = ({
   videoTime,
   videoTitle,
   channelName,
-  removeFromLikes,
+  removeVideo,
 }) => {
   return (
     <div className="horizontal-video-card">
@@ -27,7 +27,7 @@ export const HorizontalVideoCard = ({
       <div className="hc-button-container">
         <button
           className="button btn-secondary delete-button"
-          onClick={() => removeFromLikes(videoId)}
+          onClick={() => removeVideo(videoId)}
         >
           <i className="fas fa-trash"></i>
         </button>

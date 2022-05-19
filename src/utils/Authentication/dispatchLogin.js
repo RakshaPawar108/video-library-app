@@ -1,11 +1,13 @@
 import { logIn } from "../../services/";
 import { fetchLikedVideos } from "../Likes/fetch-liked-videos";
+import { fetchWatchLater } from "../WatchLater/fetch-watch-later";
 
 export const dispatchLogin = async (
   user,
   authDispatch,
   navigate,
-  likesDispatch
+  likesDispatch,
+  watchLaterDispatch
 ) => {
   try {
     const res = await logIn(user);
@@ -20,6 +22,7 @@ export const dispatchLogin = async (
         },
       });
       fetchLikedVideos(likesDispatch, res.data.encodedToken);
+      fetchWatchLater(watchLaterDispatch, res.data.encodedToken);
       alert("Successfully Logged In");
       navigate("/");
     }

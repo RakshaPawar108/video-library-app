@@ -1,11 +1,56 @@
 import "./WatchLater.css";
-import { SideNav } from "../../components";
+import { HorizontalVideoCard, PageSidePiece, SideNav } from "../../components";
+import { useAuth, useWatchLater } from "../../context";
+import { fetchWatchLater, removeFromWatchLater } from "../../utils";
+import { useState, useEffect } from "react";
 
 export const WatchLater = () => {
+  const {
+    authState: { token },
+  } = useAuth();
+  const {
+    watchLaterState: { watchlater },
+    watchLaterDispatch,
+  } = useWatchLater();
+
+  const [watchLater, setWatchLater] = useState(true);
+
+  const removeVidFromWatchLater = (_id) => {
+    removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
+  };
+
+  useEffect(() => {
+    if (token) {
+      fetchWatchLater(watchLaterDispatch, token);
+    }
+  });
   return (
     <div className="watch-later-wrapper">
       <SideNav />
-      <div className="videos-container">This is Watch Later Page</div>
+      <div className="videos-container">
+        <PageSidePiece pageTitle="Watch Later" numVideos={watchlater.length} />
+        <ul className="list list-stacked videos-list">
+          {watchlater.length > 0 ? (
+            watchlater.map((watchLaterVideo) => (
+              <li className="list-item stacked" key={watchLaterVideo._id}>
+                <HorizontalVideoCard
+                  videoId={watchLaterVideo._id}
+                  videoThumbnail={watchLaterVideo.videoThumbnail}
+                  videoTime={watchLaterVideo.videoTime}
+                  videoTitle={watchLaterVideo.title}
+                  channelName={watchLaterVideo.channelName}
+                  removeVideo={removeVidFromWatchLater}
+                  watchlater={watchLater}
+                />
+              </li>
+            ))
+          ) : (
+            <div className="no-video-div">
+              You have not added any videos to Watch Later yet
+            </div>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

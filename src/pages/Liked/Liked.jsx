@@ -40,7 +40,7 @@ export const Liked = () => {
                   videoTime={likedVideo.videoTime}
                   videoTitle={likedVideo.title}
                   channelName={likedVideo.channelName}
-                  removeFromLikes={removeFromLikes}
+                  removeVideo={removeFromLikes}
                   liked={liked}
                 />
               </li>
