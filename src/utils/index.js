@@ -7,3 +7,4 @@ export { fetchLikedVideos } from "./Likes/fetch-liked-videos";
 export { addToWatchLater } from "./WatchLater/add-watch-later";
 export { removeFromWatchLater } from "./WatchLater/remove-watch-later";
 export { fetchWatchLater } from "./WatchLater/fetch-watch-later";
+export { getVideo } from "./Videos/Video/getVideo";
