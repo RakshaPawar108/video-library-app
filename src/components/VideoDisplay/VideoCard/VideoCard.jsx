@@ -76,15 +76,22 @@ export const VideoCard = ({
     inWatchLater(_id);
   });
 
+  const goToSingleVideoHandler = (_id) => {
+    navigate(`/video/${_id}`);
+  };
+
   return (
-    <div className="card video-card">
+    <div
+      className="card video-card"
+      onClick={() => goToSingleVideoHandler(_id)}
+    >
       <div className="image-container card-thumbnail">
         <img src={videoThumbnail} alt="" />
         <span className="video-time">{videoTime}</span>
       </div>
       <div className="content-container video-content">
         <figure className="avatar avatar-sm channel-img">
-          <img src={channelImg} alt="" className="avatar-img" />
+          <img src={channelImg} alt={channelName} className="avatar-img" />
         </figure>
         <div className="video-details">
           <h2 className="video-title" title={title}>
