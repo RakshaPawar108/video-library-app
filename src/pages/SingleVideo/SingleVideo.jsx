@@ -44,10 +44,6 @@ export const SingleVideo = () => {
     unlikeVideo(_id, token, likesDispatch, setLiked);
   };
 
-  const isLiked = (_id) => {
-    likes.find((video) => video._id === _id) ? setLiked(true) : setLiked(false);
-  };
-
   const addToWatchLaterHandler = (_id) => {
     if (token) {
       addToWatchLater(token, video, watchLaterDispatch, setWatchLater);
@@ -60,17 +56,22 @@ export const SingleVideo = () => {
     removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
   };
 
-  const inWatchLater = (_id) => {
-    watchlater.find((video) => video._id === _id)
-      ? setWatchLater(true)
-      : setWatchLater(false);
-  };
-
   useEffect(() => {
     getVideo(params._id, setVideo, setLoading);
+    const isLiked = (_id) => {
+      likes.find((video) => video._id === _id)
+        ? setLiked(true)
+        : setLiked(false);
+    };
+    const inWatchLater = (_id) => {
+      watchlater.find((video) => video._id === _id)
+        ? setWatchLater(true)
+        : setWatchLater(false);
+    };
+
     isLiked(params._id);
     inWatchLater(params._id);
-  }, [params._id]);
+  }, [params._id, likes, watchlater]);
 
   return (
     <div className="single-video-wrapper">
