@@ -1,16 +1,75 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { SideNav } from "../../components";
 import ReactPlayer from "react-player/youtube";
 import "./SingleVideo.css";
-import { getVideo } from "../../utils";
+import {
+  getVideo,
+  likeVideo,
+  unlikeVideo,
+  addToWatchLater,
+  removeFromWatchLater,
+} from "../../utils";
+import { useAuth, useLikes, useWatchLater } from "../../context";
 
 export const SingleVideo = () => {
   const [video, setVideo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [liked, setLiked] = useState(false);
+  const [watchLater, setWatchLater] = useState(false);
+
+  const {
+    authState: { token },
+  } = useAuth();
+  const {
+    likesState: { likes },
+    likesDispatch,
+  } = useLikes();
+  const {
+    watchLaterState: { watchlater },
+    watchLaterDispatch,
+  } = useWatchLater();
+  const navigate = useNavigate();
   const params = useParams();
+
+  const likeHandler = (_id) => {
+    if (token) {
+      likeVideo(token, video, likesDispatch, setLiked);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const unlikeHandler = (_id) => {
+    unlikeVideo(_id, token, likesDispatch, setLiked);
+  };
+
+  const isLiked = (_id) => {
+    likes.find((video) => video._id === _id) ? setLiked(true) : setLiked(false);
+  };
+
+  const addToWatchLaterHandler = (_id) => {
+    if (token) {
+      addToWatchLater(token, video, watchLaterDispatch, setWatchLater);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const removeFromWatchLaterHandler = (_id) => {
+    removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
+  };
+
+  const inWatchLater = (_id) => {
+    watchlater.find((video) => video._id === _id)
+      ? setWatchLater(true)
+      : setWatchLater(false);
+  };
+
   useEffect(() => {
     getVideo(params._id, setVideo, setLoading);
+    isLiked(params._id);
+    inWatchLater(params._id);
   }, [params._id]);
 
   return (
@@ -33,18 +92,40 @@ export const SingleVideo = () => {
                 {video.numViews} views | {video.numLikes} likes
               </h4>
               <div className="action-buttons-container">
-                <button
-                  className="button btn-float btn-primary s-like-button"
-                  title="Like Video"
-                >
-                  <i className="far fa-thumbs-up like-icon"></i>
-                </button>
-                <button
-                  className="button btn-float btn-primary s-watchlater-button"
-                  title="Add to Watch Later"
-                >
-                  <i className="far fa-clock wl-icon"></i>
-                </button>
+                {liked ? (
+                  <button
+                    className="button btn-float btn-primary like-button"
+                    title="Unlike Video"
+                    onClick={() => unlikeHandler(video._id)}
+                  >
+                    <i className="fas fa-thumbs-up like-icon"></i>
+                  </button>
+                ) : (
+                  <button
+                    className="button btn-float btn-primary like-button"
+                    title="Like Video"
+                    onClick={() => likeHandler(video._id)}
+                  >
+                    <i className="far fa-thumbs-up like-icon"></i>
+                  </button>
+                )}
+                {watchLater ? (
+                  <button
+                    className="button btn-float btn-primary watchlater-button"
+                    title="Remove from Watch Later"
+                    onClick={() => removeFromWatchLaterHandler(video._id)}
+                  >
+                    <i className="fas fa-clock wl-icon"></i>
+                  </button>
+                ) : (
+                  <button
+                    className="button btn-float btn-primary watchlater-button"
+                    title="Add to Watch Later"
+                    onClick={() => addToWatchLaterHandler(video._id)}
+                  >
+                    <i className="far fa-clock wl-icon"></i>
+                  </button>
+                )}
                 <button
                   className="button btn-float btn-primary s-playlist-button"
                   title="Add to Playlist"
