@@ -7,3 +7,4 @@ export { fetchLikesService } from "./Likes/fetchLikesService";
 export { addWatchLaterService } from "./WatchLater/addWatchLaterService";
 export { removeWatchLaterService } from "./WatchLater/removeWatchLaterService";
 export { fetchWatchLaterService } from "./WatchLater/fetchWatchLaterService";
+export { getVideoService } from "./Videos/Video/getVideoService";

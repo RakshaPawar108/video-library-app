@@ -10,6 +10,7 @@ import {
   Signup,
   WatchLater,
   User,
+  SingleVideo,
 } from "./pages";
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/user" element={<User/>} />
+        <Route path="/user" element={<User />} />
+        <Route path="/video/:_id" element={<SingleVideo />} />
       </Routes>
     </div>
   );

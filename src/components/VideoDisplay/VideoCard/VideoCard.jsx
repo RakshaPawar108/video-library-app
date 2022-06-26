@@ -35,7 +35,8 @@ export const VideoCard = ({
   const [liked, setLiked] = useState(false);
   const [watchLater, setWatchLater] = useState(false);
 
-  const likeHandler = (_id) => {
+  const likeHandler = (e, _id) => {
+    e.stopPropagation();
     if (token) {
       const video = videos.find((video) => video._id === _id);
       likeVideo(token, video, likesDispatch, setLiked);
@@ -44,7 +45,8 @@ export const VideoCard = ({
     }
   };
 
-  const unlikeHandler = (_id) => {
+  const unlikeHandler = (e, _id) => {
+    e.stopPropagation();
     unlikeVideo(_id, token, likesDispatch, setLiked);
   };
 
@@ -52,7 +54,8 @@ export const VideoCard = ({
     likes.find((video) => video._id === _id) ? setLiked(true) : setLiked(false);
   };
 
-  const addToWatchLaterHandler = (_id) => {
+  const addToWatchLaterHandler = (e, _id) => {
+    e.stopPropagation();
     if (token) {
       const video = videos.find((video) => video._id === _id);
       addToWatchLater(token, video, watchLaterDispatch, setWatchLater);
@@ -61,7 +64,8 @@ export const VideoCard = ({
     }
   };
 
-  const removeFromWatchLaterHandler = (_id) => {
+  const removeFromWatchLaterHandler = (e, _id) => {
+    e.stopPropagation();
     removeFromWatchLater(_id, token, watchLaterDispatch, setWatchLater);
   };
 
@@ -76,15 +80,22 @@ export const VideoCard = ({
     inWatchLater(_id);
   });
 
+  const goToSingleVideoHandler = (_id) => {
+    navigate(`/video/${_id}`);
+  };
+
   return (
-    <div className="card video-card">
+    <div
+      className="card video-card"
+      onClick={() => goToSingleVideoHandler(_id)}
+    >
       <div className="image-container card-thumbnail">
         <img src={videoThumbnail} alt="" />
         <span className="video-time">{videoTime}</span>
       </div>
       <div className="content-container video-content">
         <figure className="avatar avatar-sm channel-img">
-          <img src={channelImg} alt="" className="avatar-img" />
+          <img src={channelImg} alt={channelName} className="avatar-img" />
         </figure>
         <div className="video-details">
           <h2 className="video-title" title={title}>
@@ -105,7 +116,7 @@ export const VideoCard = ({
             <button
               className="button btn-float btn-primary like-button"
               title="Unlike Video"
-              onClick={() => unlikeHandler(_id)}
+              onClick={(e) => unlikeHandler(e, _id)}
             >
               <i className="fas fa-thumbs-up like-icon"></i>
             </button>
@@ -113,7 +124,7 @@ export const VideoCard = ({
             <button
               className="button btn-float btn-primary like-button"
               title="Like Video"
-              onClick={() => likeHandler(_id)}
+              onClick={(e) => likeHandler(e, _id)}
             >
               <i className="far fa-thumbs-up like-icon"></i>
             </button>
@@ -123,7 +134,7 @@ export const VideoCard = ({
             <button
               className="button btn-float btn-primary watchlater-button"
               title="Remove from Watch Later"
-              onClick={() => removeFromWatchLaterHandler(_id)}
+              onClick={(e) => removeFromWatchLaterHandler(e, _id)}
             >
               <i className="fas fa-clock wl-icon"></i>
             </button>
@@ -131,7 +142,7 @@ export const VideoCard = ({
             <button
               className="button btn-float btn-primary watchlater-button"
               title="Add to Watch Later"
-              onClick={() => addToWatchLaterHandler(_id)}
+              onClick={(e) => addToWatchLaterHandler(e, _id)}
             >
               <i className="far fa-clock wl-icon"></i>
             </button>
